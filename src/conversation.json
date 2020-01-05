@@ -1,5 +1,12 @@
 [
   {
+    "id": 0,
+    "text": "HAMLET",
+    "subtext": "por William Shakespeare",
+    "createdAt": "00-01-2020",
+    "title": "true"
+  },
+  {
     "id": 1,
     "text": "Nos encontramos en la explanada delante del Palacio Real de Elsingor, en una noche oscura y fría.",
     "createdAt": "00-01-2020",
@@ -63,6 +70,32 @@
       "_id": 2,
       "name": "Francisco",
       "avatar": "https://i.pravatar.cc/150?u=francisco"
+    }
+  },
+  {
+    "id": 8,
+    "text": "Llegan Horacio y Marcelo, el relevo de la guardia real.",
+    "createdAt": "07-01-2020",
+    "system": "true"
+  },
+  {
+    "id": 9,
+    "text": "Amigos de este país.",
+    "createdAt": "08-01-2020",
+    "user": {
+      "_id": 3,
+      "name": "Horacio",
+      "avatar": "https://i.pravatar.cc/150?u=horacio"
+    }
+  },
+  {
+    "id": 10,
+    "text": "Y fieles vasallos del Rey de Dinamarca.",
+    "createdAt": "09-01-2020",
+    "user": {
+      "_id": 4,
+      "name": "Marcelo",
+      "avatar": "https://i.pravatar.cc/150?u=marcelo"
     }
   }
 ]

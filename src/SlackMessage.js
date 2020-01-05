@@ -30,18 +30,26 @@ export default class Message extends React.Component {
   }
 
   renderScene() {
-    if (this.props.currentMessage.system) {
-      const dayProps = this.getInnerComponentProps();
-      if (this.props.renderDay) {
-        return this.props.renderDay(dayProps);
-      }
-      return (
-        <View style={styles.scene}>
-          <Text>{this.props.currentMessage.text}</Text>
-        </View>
-      );
+    const dayProps = this.getInnerComponentProps();
+    if (this.props.renderDay) {
+      return this.props.renderDay(dayProps);
     }
-    return null;
+    return (
+      <View style={styles.scene}>
+        <Text>{this.props.currentMessage.text}</Text>
+      </View>
+    );
+  }
+
+  renderTitle() {
+    return (
+      <View style={styles.title}>
+        <Text style={{ fontSize: "24px" }}>
+          {this.props.currentMessage.text}
+        </Text>
+        <Text>{this.props.currentMessage.subtext}</Text>
+      </View>
+    );
   }
 
   renderBubble() {
@@ -84,7 +92,9 @@ export default class Message extends React.Component {
     console.log("reder");
     return (
       <View>
-        {this.props.currentMessage.system ? (
+        {this.props.currentMessage.title ? (
+          this.renderTitle()
+        ) : this.props.currentMessage.system ? (
           this.renderScene()
         ) : (
           <View
@@ -112,6 +122,12 @@ const styles = StyleSheet.create({
     marginRight: 0
   },
   scene: {
+    textAlign: "center",
+    backgroundColor: "DodgerBlue",
+    padding: "10px"
+  },
+  title: {
+    textAlign: "center",
     backgroundColor: "DodgerBlue",
     padding: "10px"
   },

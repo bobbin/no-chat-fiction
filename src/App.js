@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 import emojiUtils from "emoji-utils";
 import SlackMessage from "./SlackMessage";
 
-const loremIpsum =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum";
 const rt_messages = [];
 
 let msg_counter = 0;
@@ -58,7 +56,10 @@ class App extends Component {
     };
     this.onSend = this.onSend.bind(this);
   }
-
+  componentDidMount() {
+    console.log("mount");
+    this.onSend();
+  }
   renderLoading() {
     return <div>Loading...</div>;
   }
@@ -73,7 +74,6 @@ class App extends Component {
     );
   }
   onSend(messages = []) {
-    console.log(messages);
     if (msg_counter < conversation.length) {
       this.setState(
         previousState => ({
@@ -106,10 +106,6 @@ class App extends Component {
     return (
       <div className="App" style={styles.container}>
         <div style={styles.chat}>
-          <span style={{ fontSize: 24, marginTop: 18 }}>HAMLET</span>
-          <span style={{ fontSize: 18, marginTop: 18 }}>
-            por William Shakespeare
-          </span>
           <GiftedChat
             user={{ id: 1 }}
             showUserAvatar={false}
@@ -145,7 +141,8 @@ const styles = {
     borderWidth: "1px",
     borderColor: "#ccc",
     borderRightStyle: "solid",
-    borderLeftStyle: "solid"
+    borderLeftStyle: "solid",
+    textAlign: "left"
   },
   converationDetails: {
     display: "flex",
